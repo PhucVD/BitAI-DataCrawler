@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitAI.DataCrawler", "BitAI.DataCrawler\BitAI.DataCrawler.csproj", "{26105E73-6E4E-4251-AD97-8C9B7BB7CF50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitAI.Data", "BitAI.Data\BitAI.Data.csproj", "{8DF6AE68-65B5-4241-AC4D-E9DDEE572654}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitAI.DataService", "BitAI.DataService\BitAI.DataService.csproj", "{E385BA2A-A064-419D-A945-153CC099834B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26105E73-6E4E-4251-AD97-8C9B7BB7CF50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26105E73-6E4E-4251-AD97-8C9B7BB7CF50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26105E73-6E4E-4251-AD97-8C9B7BB7CF50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26105E73-6E4E-4251-AD97-8C9B7BB7CF50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DF6AE68-65B5-4241-AC4D-E9DDEE572654}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF6AE68-65B5-4241-AC4D-E9DDEE572654}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF6AE68-65B5-4241-AC4D-E9DDEE572654}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF6AE68-65B5-4241-AC4D-E9DDEE572654}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E385BA2A-A064-419D-A945-153CC099834B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E385BA2A-A064-419D-A945-153CC099834B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E385BA2A-A064-419D-A945-153CC099834B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E385BA2A-A064-419D-A945-153CC099834B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83C4B2D5-477A-4E3F-B46C-96D5A3832408}
+	EndGlobalSection
+EndGlobal

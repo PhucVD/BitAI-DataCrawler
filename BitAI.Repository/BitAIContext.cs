@@ -1,11 +1,9 @@
-namespace BitAI.Data
-{
-    using System;
-    using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
+﻿using BitAI.Data;
+using System.Data.Entity;
 
-    public partial class BitAIContext : DbContext
+namespace BitAI.Repository
+{
+    public class BitAIContext : DbContext
     {
         public BitAIContext()
             : base("name=BitAIModel")

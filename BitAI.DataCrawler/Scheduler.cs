@@ -1,4 +1,5 @@
-﻿using BitAI.DataService;
+﻿using BitAI.DataCrawler.ScheduledJobs;
+using BitAI.DataService;
 using Quartz;
 using Quartz.Impl;
 using System;
@@ -20,22 +21,58 @@ namespace BitAI.DataCrawler
                 };
                 StdSchedulerFactory factory = new StdSchedulerFactory(props);
                 IScheduler scheduler = await factory.GetScheduler();
-                
-                // define the job and tie it to our HelloJob class
-                IJobDetail job = JobBuilder.Create<DataCrawlerJob>()
-                    .WithIdentity("UpdateMarketHistory", "group1")
-                    .Build();
+
+                #region GetCurrencyJob
+                // define the job and tie it to our job class
+                //IJobDetail getCurrencyJob = JobBuilder.Create<GetCurrencyJob>()
+                //    .WithIdentity("GetCurrencyJob", "group1")
+                //    .Build();
 
                 // Trigger the job to run now, and then every 40 seconds
-                ITrigger trigger = TriggerBuilder.Create()
-                  .WithIdentity("myTrigger", "group1")
+                //ITrigger getCurrencyTrigger = TriggerBuilder.Create()
+                //  .WithIdentity("GetCurrencyTrigger", "group1")
+                //  .StartNow()
+                //  .WithSimpleSchedule(x => x
+                //      .WithIntervalInSeconds(30)
+                //      .WithRepeatCount(2))
+                //  .Build();
+
+                //await scheduler.ScheduleJob(getCurrencyJob, getCurrencyTrigger);
+                #endregion
+
+                #region GetMarketJob
+                //IJobDetail getMarketJob = JobBuilder.Create<GetMarketJob>()
+                //    .WithIdentity("GetMarketJob", "group1")
+                //    .Build();
+
+              
+
+                //ITrigger getMarketTrigger = TriggerBuilder.Create()
+                //  .WithIdentity("GetMarketJob", "group1")
+                //  .StartNow()
+                //  .WithSimpleSchedule(x => x
+                //      .WithIntervalInSeconds(30)
+                //      .WithRepeatCount(4))
+                //  .Build();
+
+                //await scheduler.ScheduleJob(getMarketJob, getMarketTrigger);
+                #endregion
+
+                #region GetMarketHistoryJob
+                IJobDetail getMarketHistoryJob = JobBuilder.Create<GetMarketHistoryJob>()
+                    .WithIdentity("GetMarketHistory", "group1")
+                    .Build();
+
+                ITrigger getMarketHistoryTrigger = TriggerBuilder.Create()
+                  .WithIdentity("GetMarketHistory", "group1")
                   .StartNow()
                   .WithSimpleSchedule(x => x
-                      .WithIntervalInSeconds(15)
+                      .WithIntervalInSeconds(30)
                       .WithRepeatCount(4))
                   .Build();
 
-                await scheduler.ScheduleJob(job, trigger);
+                await scheduler.ScheduleJob(getMarketHistoryJob, getMarketHistoryTrigger);
+                #endregion
 
                 // and start it off
                 await scheduler.Start();
@@ -51,18 +88,5 @@ namespace BitAI.DataCrawler
                 await Console.Error.WriteLineAsync(se.ToString());
             }
         }
-    }
-
-    public class DataCrawlerJob : IJob
-    {
-        public async Task Execute(IJobExecutionContext context)
-        {
-            var client = new BittrexClient("a1b69f60294f4bee9148f2575f292fbe", "d305491dd146407393ab4c4e9217495b");
-            var service = new DataCrawlingService(client);
-
-            Console.WriteLine($"Start job {context.JobDetail.Key} at {DateTime.Now.ToLongDateString()}...");
-
-            await service.GetMarketHistory("BTC-ADA");
-        }
-    }
+    }    
 }

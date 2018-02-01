@@ -56,6 +56,10 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScheduledJobs\BaseJob.cs" />
+    <Compile Include="ScheduledJobs\GetCurrencyJob.cs" />
+    <Compile Include="ScheduledJobs\GetMarketJob.cs" />
+    <Compile Include="ScheduledJobs\GetMarketHistoryJob.cs" />
     <Compile Include="Scheduler.cs" />
   </ItemGroup>
   <ItemGroup>

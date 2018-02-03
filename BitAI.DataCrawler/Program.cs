@@ -14,17 +14,6 @@ namespace BitAI.DataCrawler
         {
             // trigger async evaluation
             Scheduler.RunScheduler().GetAwaiter().GetResult();
-
-            //var client = new BittrexClient("a1b69f60294f4bee9148f2575f292fbe", "d305491dd146407393ab4c4e9217495b");
-            //var service = new DataCrawlingService(client);
-
-            //GetMarketHistory(client).GetAwaiter().GetResult();
-            //GetMarkets(client).GetAwaiter().GetResult();
-            //var n = service.GetCurrencies().GetAwaiter().GetResult();
-            //var n = service.GetMarkets().GetAwaiter().GetResult();
-            //var n = service.GetMarketHistory("BTC-ADA").GetAwaiter().GetResult();
-
-            //Console.WriteLine($"Result: {n}");
             Console.ReadLine();
         }
 
